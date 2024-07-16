@@ -256,7 +256,7 @@ const refreshAccessToken =asyncHandler( async(req,res)=>{
         )
 
     } catch (error) {
-        
+        throw new ApiErrors(400, "Access token error")
     }
 })
 

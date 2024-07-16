@@ -34,7 +34,7 @@ router.route("/getCurrentUser").get(verifyJWT,getCurrentUser)
 router.route("/changeName").post(verifyJWT,changeName)
 router.route("/changeAvatar").post(verifyJWT,upload.single("avatar"),changeAvatar)
 router.route("/changeCoverImage").post(verifyJWT,upload.single("coverImage"),changeCoverImage)
-router.route("/c/:userName").get(verifyJWT,getUserChannelProfile)
+router.route("/c/:userName").get(getUserChannelProfile)
 
 
 
