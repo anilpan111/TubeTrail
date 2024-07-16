@@ -150,10 +150,11 @@ const loginUser = asyncHandler( async (req,res) =>{
 
     const loggedInUser = await User.findById(user._id).select(" -passwor -refreshtoken")
 
-    const options ={
+    const options = {
         httpOnly: true,
-        secure : true
-    }
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'None'
+    };
 
 
     //returning response to the user or frontend
