@@ -228,10 +228,11 @@ const refreshAccessToken =asyncHandler( async(req,res)=>{
             throw new ApiErrors(401,"Refresh token is expired")
         }
 
-        const options={
+        const options = {
             httpOnly: true,
-            secure: true
-        }
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'None'
+        };
 
         //genrate access token and refresh token
 
