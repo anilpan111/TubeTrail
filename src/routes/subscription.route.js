@@ -5,9 +5,9 @@ import { subscribe,isSubscribed } from "../controllers/subscribtion.controller.j
 
 const router =Router()
 
-router.use(verifyJWT)
+// router.use(verifyJWT)
 
-router.route("/sub/:userName").post(subscribe)
-router.route("/profile/:userName").get(isSubscribed)
+router.route("/sub/:userName").get(verifyJWT,subscribe)
+router.route("/profile/:userName").get(verifyJWT,isSubscribed)
 
 export default router

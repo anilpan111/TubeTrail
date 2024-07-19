@@ -124,7 +124,7 @@ const loginUser = asyncHandler( async (req,res) =>{
 
 
     if(!(userName || email)){
-        throw new ApiErrors(400, "User name or email required anil")
+        throw new ApiErrors(400, "User name or email required ")
     }
 
     const user= await User.findOne({
@@ -153,7 +153,8 @@ const loginUser = asyncHandler( async (req,res) =>{
     const options = {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
-        sameSite: 'None'
+        // sameSite: 'None',
+        path: '/'
     };
 
 
@@ -231,7 +232,8 @@ const refreshAccessToken =asyncHandler( async(req,res)=>{
         const options = {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
-            sameSite: 'None'
+            // sameSite: 'None'
+            path: '/'
         };
 
         //genrate access token and refresh token

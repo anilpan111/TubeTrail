@@ -20,6 +20,7 @@ import videoRouter from "./routes/video.routes.js"
 import LikeRouter from "./routes/like.routes.js"
 import subscriptionRoute from "./routes/subscription.route.js"
 
+
 // route declaration
 
 app.use("/api/v1/user",userRouter)
